@@ -19,7 +19,11 @@ namespace hospital_mangment.Models
         {
         }
 
+        public virtual DbSet<Appointments> Appointments { get; set; }
+        public virtual DbSet<FrontDesk> FrontDesk { get; set; }
+        public virtual DbSet<RegDoctor> RegDoctor { get; set; }
         public virtual DbSet<Register> Register { get; set; }
+        public virtual DbSet<Rooms> Rooms { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,45 +36,84 @@ namespace hospital_mangment.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Register>(entity =>
+            modelBuilder.Entity<Appointments>(entity =>
             {
-                entity.ToTable("register");
+                entity.ToTable("appointments");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.Address)
-                    .IsRequired()
-                    .HasColumnName("address")
-                    .HasColumnType("text");
-
                 entity.Property(e => e.Date)
                     .IsRequired()
                     .HasColumnName("date")
-                    .HasColumnType("text");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.EMail)
+                entity.Property(e => e.Department)
                     .IsRequired()
-                    .HasColumnName("eMail")
-                    .HasColumnType("text");
+                    .HasColumnName("department")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
-                entity.Property(e => e.EmergencyNumber).HasColumnName("emergencyNumber");
-
-                entity.Property(e => e.Gender)
+                entity.Property(e => e.Doctor)
                     .IsRequired()
-                    .HasColumnName("gender")
-                    .HasColumnType("text");
-
-                entity.Property(e => e.History)
-                    .IsRequired()
-                    .HasColumnName("history")
-                    .HasColumnType("text");
+                    .HasColumnName("doctor")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Name)
                     .IsRequired()
                     .HasColumnName("name")
-                    .HasColumnType("text");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Room)
+                    .IsRequired()
+                    .HasColumnName("room")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Time)
+                    .IsRequired()
+                    .HasColumnName("time")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<FrontDesk>(entity =>
+            {
+                entity.ToTable("front desk");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Date)
+                    .IsRequired()
+                    .HasColumnName("date")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.Department)
+                    .IsRequired()
+                    .HasColumnName("department")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.EMail)
+                    .IsRequired()
+                    .HasColumnName("eMail")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.Gender)
+                    .IsRequired()
+                    .HasColumnName("gender")
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasMaxLength(250);
 
                 entity.Property(e => e.Number).HasColumnName("number");
 
@@ -79,15 +122,151 @@ namespace hospital_mangment.Models
                     .HasColumnName("password")
                     .HasMaxLength(250);
 
-                entity.Property(e => e.Sickness)
+                entity.Property(e => e.VerifyPassword)
                     .IsRequired()
-                    .HasColumnName("sickness")
-                    .HasColumnType("text");
+                    .HasColumnName("verifyPassword")
+                    .HasMaxLength(250);
+            });
+
+            modelBuilder.Entity<RegDoctor>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Date)
+                    .IsRequired()
+                    .HasColumnName("date")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EMail)
+                    .IsRequired()
+                    .HasColumnName("eMail")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Gender)
+                    .IsRequired()
+                    .HasColumnName("gender")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Number).HasColumnName("number");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnName("password")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Specialization)
+                    .HasColumnName("specialization")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.VerifyPassword)
                     .IsRequired()
                     .HasColumnName("verifyPassword")
-                    .HasColumnType("text");
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Register>(entity =>
+            {
+                entity.ToTable("register");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Address)
+                    .IsRequired()
+                    .HasColumnName("address")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.Date)
+                    .IsRequired()
+                    .HasColumnName("date")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.EMail)
+                    .IsRequired()
+                    .HasColumnName("eMail")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.EmergencyNumber).HasColumnName("emergencyNumber");
+
+                entity.Property(e => e.Gender)
+                    .IsRequired()
+                    .HasColumnName("gender")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.History)
+                    .IsRequired()
+                    .HasColumnName("history")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.Number).HasColumnName("number");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnName("password")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.Prescription)
+                    .HasColumnName("prescription")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Sickness)
+                    .IsRequired()
+                    .HasColumnName("sickness")
+                    .HasMaxLength(250);
+
+                entity.Property(e => e.VerifyPassword)
+                    .IsRequired()
+                    .HasColumnName("verifyPassword")
+                    .HasMaxLength(250);
+            });
+
+            modelBuilder.Entity<Rooms>(entity =>
+            {
+                entity.ToTable("rooms");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Department)
+                    .IsRequired()
+                    .HasColumnName("department")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Doctor)
+                    .IsRequired()
+                    .HasColumnName("doctor")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Room).HasColumnName("room");
             });
 
             OnModelCreatingPartial(modelBuilder);

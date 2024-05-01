@@ -24,7 +24,7 @@ namespace hospital_mangment
             InitializeComponent();
         }
          public int RandomID()
-        {
+         {
             Random random = new Random();
             var numbers= new List<int>();
             int count;
@@ -35,9 +35,32 @@ namespace hospital_mangment
             while (numbers.Contains(count));
             numbers.Add(count);
             return count;
+         }
+  
+        
+
+        private void patient_Load(object sender, EventArgs e)
+        {
+
         }
-        private void button1_Click(object sender, EventArgs e)
-        { 
+
+  
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frontdeskpage r1 = new Frontdeskpage();
+            r1.Show();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
             try
             {
                 if (name.Text != "" && date.Text != "" && gender.Text != "" && eMail.Text != "" && number.Text != "" &&
@@ -54,93 +77,38 @@ namespace hospital_mangment
                         int.Parse(emergencyNumber.Text.ToString()), date.Text.ToString(), gender.Text.ToString(),
                         address.Text.ToString(), eMail.Text.ToString(), password.Text.ToString(), sickness.Text.ToString(),
                         history.Text.ToString(), verifyPassword.Text.ToString());
-                        //string connstring = "Data Source=LAPTOP-AD5D06OP\\MSSQLSERVER1;Initial Catalog=Person_Database;Integrated Security=True;Encrypt=False";
-                        //SqlConnection con = new SqlConnection(connstring);
-                        //con.Open();
-                            //string q = "insert into register(name,id,number,emergencyNumber,date,gender,address,eMail,password,sickness,history,verifyPassword)" +
-                            //    "values('" + P1.name + "','" + P1.id + "','" + P1.number + "','" + P1.emergencyNumber + "','" + P1.date + "'," +
-                            //    "'" + P1.gender + "','" + P1.address + "','" + P1.eMail + "','" + P1.password + "','" + P1.sickness + "'," +
-                            //    "'" + P1.history + "','" + P1.verifyPassword + "')";
-                            //SqlCommand cmd = new SqlCommand(q, con);
-                            //cmd.ExecuteNonQuery();
-                            hospitalDB_Context.Register.Add(new Register
-                            {
-                                Name = P1.name,
-                                Id = P1.id,
-                                Number = P1.number,
-                                EmergencyNumber = P1.emergencyNumber,
-                                Date = P1.date,
-                                History = P1.history,
-                                Gender = P1.gender,
-                                Address = P1.address,
-                                EMail = P1.eMail,
-                                Password = P1.password,
-                                Sickness = P1.sickness,
-                                VerifyPassword = P1.verifyPassword
-                            });
-                            hospitalDB_Context.SaveChanges();
-                            MessageBox.Show($"Patient Added with id {id} ");
+                   
+                        hospitalDB_Context.Register.Add(new Register
+                        {
+                            Name = P1.name,
+                            Id = P1.id,
+                            Number = P1.number,
+                            EmergencyNumber = P1.emergencyNumber,
+                            Date = P1.date,
+                            History = P1.history,
+                            Gender = P1.gender,
+                            Address = P1.address,
+                            EMail = P1.eMail,
+                            Password = P1.password,
+                            Sickness = P1.sickness,
+                            VerifyPassword = P1.verifyPassword
+                        });
+                        hospitalDB_Context.SaveChanges();
+                        MessageBox.Show($"Patient Added with id {id} ");
 
+                        this.Hide();
+                        Patientpage r1 = new Patientpage();
+                        r1.Show();
                     }
                 }
                 else
                     MessageBox.Show("Fill in the blanks!");
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void patient_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            register r1 = new register();
-            r1.Show();
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
 
         }
     }

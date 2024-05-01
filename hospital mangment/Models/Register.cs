@@ -21,5 +21,6 @@ namespace hospital_mangment.Models
         public string Sickness { get; set; }
         public string History { get; set; }
         public string VerifyPassword { get; set; }
+        public string Prescription { get; set; }
     }
 }

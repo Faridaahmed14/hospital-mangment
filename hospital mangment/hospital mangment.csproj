@@ -162,13 +162,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\HospitalDB_Context.cs" />
-    <Compile Include="Models\Register.cs" />
-    <Compile Include="staff.cs">
+    <Compile Include="appointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="staff.Designer.cs">
-      <DependentUpon>staff.cs</DependentUpon>
+    <Compile Include="appointments.Designer.cs">
+      <DependentUpon>appointments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppointmentClass.cs" />
+    <Compile Include="assignRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="assignRoom.Designer.cs">
+      <DependentUpon>assignRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeletePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeletePatient.Designer.cs">
+      <DependentUpon>DeletePatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DoctorClass.cs" />
+    <Compile Include="DoctorDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoctorDisplay.Designer.cs">
+      <DependentUpon>DoctorDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Doctorpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctorpage.Designer.cs">
+      <DependentUpon>Doctorpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontDeskClass.cs" />
+    <Compile Include="Frontdeskpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frontdeskpage.Designer.cs">
+      <DependentUpon>Frontdeskpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Appointments.cs" />
+    <Compile Include="Models\FrontDesk.cs" />
+    <Compile Include="Models\HospitalDB_Context.cs" />
+    <Compile Include="Models\RegDoctor.cs" />
+    <Compile Include="Models\Register.cs" />
+    <Compile Include="Models\Rooms.cs" />
+    <Compile Include="PatientDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatientDetails.Designer.cs">
+      <DependentUpon>PatientDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Patientpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Patientpage.Designer.cs">
+      <DependentUpon>Patientpage.cs</DependentUpon>
     </Compile>
     <Compile Include="Login form.cs" />
     <Compile Include="login.cs">
@@ -176,6 +225,24 @@
     </Compile>
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PersonClass.cs" />
+    <Compile Include="Person_DatabaseDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Person_DatabaseDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RegDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegDoc.Designer.cs">
+      <DependentUpon>RegDoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegFront.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegFront.Designer.cs">
+      <DependentUpon>RegFront.cs</DependentUpon>
     </Compile>
     <Compile Include="register.cs">
       <SubType>Form</SubType>
@@ -193,20 +260,62 @@
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ResetPassword.Designer.cs">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomClass.cs" />
+    <Compile Include="RoomDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomDisplay.Designer.cs">
+      <DependentUpon>RoomDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdatePassClass.cs" />
+    <Compile Include="UserID.cs" />
     <Compile Include="welcome.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="welcome.Designer.cs">
       <DependentUpon>welcome.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="staff.resx">
-      <DependentUpon>staff.cs</DependentUpon>
+    <EmbeddedResource Include="appointments.resx">
+      <DependentUpon>appointments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="assignRoom.resx">
+      <DependentUpon>assignRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeletePatient.resx">
+      <DependentUpon>DeletePatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoctorDisplay.resx">
+      <DependentUpon>DoctorDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctorpage.resx">
+      <DependentUpon>Doctorpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frontdeskpage.resx">
+      <DependentUpon>Frontdeskpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PatientDetails.resx">
+      <DependentUpon>PatientDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Patientpage.resx">
+      <DependentUpon>Patientpage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="patient.resx">
       <DependentUpon>patient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegDoc.resx">
+      <DependentUpon>RegDoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegFront.resx">
+      <DependentUpon>RegFront.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="register.resx">
       <DependentUpon>register.cs</DependentUpon>
@@ -219,11 +328,29 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ResetPassword.resx">
+      <DependentUpon>ResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomDisplay.resx">
+      <DependentUpon>RoomDisplay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="welcome.resx">
       <DependentUpon>welcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Person_DatabaseDataSet.xsc">
+      <DependentUpon>Person_DatabaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Person_DatabaseDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Person_DatabaseDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Person_DatabaseDataSet.xss">
+      <DependentUpon>Person_DatabaseDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -236,6 +363,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rooms.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete patient.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.1.0\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
